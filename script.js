@@ -101,7 +101,7 @@ contactForm.addEventListener('submit', (e) => {
     const message = formData.get('message');
     
     // Create mailto link (you can integrate with a backend service later)
-    const mailtoLink = `mailto:your.email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    const mailtoLink = `mailto:dan_talnariu@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
     
     // Open email client
     window.location.href = mailtoLink;
