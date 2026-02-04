@@ -163,3 +163,73 @@ function typeWriter(element, text, speed = 100) {
 //     typeWriter(nameElement, originalText, 100);
 // });
 
+// Video Modal Functions
+function openVideoModal() {
+    console.log('openVideoModal called');
+    const modal = document.getElementById('video-modal');
+    const video = document.getElementById('demo-video');
+    
+    if (!modal) {
+        console.error('Modal element not found');
+        return;
+    }
+    
+    if (!video) {
+        console.error('Video element not found');
+        return;
+    }
+    
+    console.log('Opening modal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Try to play video, but don't fail if autoplay is blocked
+    video.play().catch(error => {
+        console.log('Video autoplay prevented:', error);
+        // Video will still be visible and user can click play
+    });
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('video-modal');
+    const video = document.getElementById('demo-video');
+    
+    if (!modal || !video) {
+        return;
+    }
+    
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+    video.pause();
+    video.currentTime = 0; // Reset video to start
+}
+
+// Close modal when clicking outside the video content
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('video-modal');
+    
+    // Add event listener to demo button as backup (onclick should also work)
+    const demoBtn = document.querySelector('.demo-btn');
+    if (demoBtn) {
+        demoBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openVideoModal();
+        });
+    }
+    
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeVideoModal();
+            }
+        });
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            closeVideoModal();
+        }
+    });
+});
+

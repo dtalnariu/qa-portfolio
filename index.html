@@ -449,6 +449,9 @@
                         <i class="fas fa-robot"></i>
                     </div>
                     <h3>AI TC Development Tool</h3>
+                    <button type="button" class="demo-btn" onclick="openVideoModal()">
+                        <i class="fas fa-play-circle"></i> Watch how the tool works
+                    </button>
                     <p>Built an in-house web tool from scratch that leverages AI LLM integration to automate test case creation, directly from pasting in acceptance criteria.</p>
                     <div class="project-tags">
                         <span>AI/LLM Integration</span>
@@ -625,6 +628,17 @@
     <button id="scroll-top" class="scroll-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="video-modal">
+        <div class="video-modal-content">
+            <span class="video-modal-close" onclick="closeVideoModal()">&times;</span>
+            <video id="demo-video" controls>
+                <source src="ai-tool-demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
