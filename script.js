@@ -1,3 +1,44 @@
+// Dark Mode Toggle - Initialize theme immediately to prevent flash
+(function() {
+    const html = document.documentElement;
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+})();
+
+// Dark Mode Toggle - Setup toggle functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeIcon = document.getElementById('dark-mode-icon');
+    const html = document.documentElement;
+
+    function updateDarkModeIcon(theme) {
+        if (darkModeIcon) {
+            if (theme === 'dark') {
+                darkModeIcon.classList.remove('fa-moon');
+                darkModeIcon.classList.add('fa-sun');
+            } else {
+                darkModeIcon.classList.remove('fa-sun');
+                darkModeIcon.classList.add('fa-moon');
+            }
+        }
+    }
+
+    // Set initial icon based on current theme
+    const currentTheme = html.getAttribute('data-theme');
+    updateDarkModeIcon(currentTheme);
+
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateDarkModeIcon(newTheme);
+        });
+    }
+});
+
 // Navigation Toggle
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');

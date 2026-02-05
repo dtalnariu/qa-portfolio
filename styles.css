@@ -20,6 +20,21 @@
     --transition: all 0.3s ease;
 }
 
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --primary-color: #3b82f6;
+    --primary-dark: #2563eb;
+    --secondary-color: #94a3b8;
+    --accent-color: #38bdf8;
+    --text-dark: #f1f5f9;
+    --text-light: #cbd5e1;
+    --bg-light: #1e293b;
+    --bg-white: #0f172a;
+    --border-color: #334155;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -49,6 +64,10 @@ body {
     box-shadow: var(--shadow);
     z-index: 1000;
     transition: var(--transition);
+}
+
+[data-theme="dark"] .navbar {
+    background: rgba(15, 23, 42, 0.95);
 }
 
 .navbar.scrolled {
@@ -108,6 +127,35 @@ body {
     color: var(--primary-color);
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dark-mode-toggle {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-dark);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.2rem;
+}
+
+.dark-mode-toggle:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -129,6 +177,10 @@ body {
     align-items: center;
     padding: 120px 0 80px;
     background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
 
 .hero-content {
@@ -310,6 +362,10 @@ section {
     border-top: 2px solid var(--border-color);
 }
 
+[data-theme="dark"] .about-stats {
+    border-top-color: var(--border-color);
+}
+
 .stat-item {
     text-align: center;
 }
@@ -364,6 +420,10 @@ section {
     background: var(--primary-color);
     border: 3px solid white;
     box-shadow: var(--shadow);
+}
+
+[data-theme="dark"] .timeline-marker {
+    border-color: var(--bg-white);
 }
 
 .timeline-header {
@@ -426,6 +486,11 @@ section {
     transition: var(--transition);
 }
 
+[data-theme="dark"] .skill-category {
+    background: #1e293b;
+    border: 1px solid var(--border-color);
+}
+
 .skill-category:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
@@ -461,6 +526,12 @@ section {
     transition: var(--transition);
 }
 
+[data-theme="dark"] .skill-tag {
+    background: #334155;
+    color: var(--text-dark);
+    border-color: #475569;
+}
+
 .skill-tag:hover {
     background: var(--primary-color);
     color: white;
@@ -485,6 +556,11 @@ section {
     border-radius: 12px;
     box-shadow: var(--shadow);
     transition: var(--transition);
+}
+
+[data-theme="dark"] .project-card {
+    background: #1e293b;
+    border: 1px solid var(--border-color);
 }
 
 .project-card:hover {
@@ -538,6 +614,11 @@ section {
     border-radius: 12px;
     font-size: 0.8rem;
     font-weight: 500;
+}
+
+[data-theme="dark"] .project-tags span {
+    background: #334155;
+    color: var(--accent-color);
 }
 
 .project-impact {
@@ -605,6 +686,10 @@ section {
     padding: 2rem;
     box-shadow: var(--shadow-lg);
     animation: slideUp 0.3s ease;
+}
+
+[data-theme="dark"] .video-modal-content {
+    background: var(--bg-white);
 }
 
 .video-modal-close {
@@ -696,6 +781,10 @@ section {
     box-shadow: var(--shadow);
 }
 
+[data-theme="dark"] .achievement-card {
+    background: linear-gradient(135deg, #3b82f6, #38bdf8);
+}
+
 .achievement-card:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: var(--shadow-lg);
@@ -748,6 +837,11 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+[data-theme="dark"] .certification-card {
+    background: #1e293b;
+    border: 1px solid var(--border-color);
 }
 
 .certification-card:hover {
@@ -803,6 +897,11 @@ section {
     font-size: 0.85rem;
     font-weight: 600;
     border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .certification-badge {
+    background: #334155;
+    color: var(--accent-color);
 }
 
 /* Contact Section */
@@ -868,6 +967,11 @@ section {
     padding: 2rem;
     border-radius: 12px;
     box-shadow: var(--shadow);
+}
+
+[data-theme="dark"] .contact-form-container {
+    background: #1e293b;
+    border: 1px solid var(--border-color);
 }
 
 .form-group {
@@ -955,8 +1059,16 @@ section {
         gap: 1rem;
     }
 
+    [data-theme="dark"] .nav-menu {
+        background: var(--bg-white);
+    }
+
     .nav-menu.active {
         left: 0;
+    }
+
+    .nav-actions {
+        order: -1;
     }
 
     .nav-toggle {
