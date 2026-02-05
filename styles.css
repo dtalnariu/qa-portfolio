@@ -1007,6 +1007,11 @@ section {
     padding: 2rem 0;
 }
 
+[data-theme="dark"] .footer {
+    background: var(--bg-white);
+    color: var(--text-dark);
+}
+
 .footer-note {
     margin-top: 0.5rem;
     opacity: 0.8;
