@@ -645,6 +645,104 @@
         </div>
     </div>
 
+    <!-- Bug Hunt Floating Button -->
+    <button id="bug-hunt-btn" class="bug-hunt-btn" aria-label="Start Bug Hunt Challenge">
+        <i class="fas fa-bug"></i>
+        <span class="bug-hunt-btn-text">Bug Hunt</span>
+    </button>
+
+    <!-- Bug Hunt Modal -->
+    <div id="bug-hunt-modal" class="bug-hunt-modal">
+        <div class="bug-hunt-content">
+            <div class="bug-hunt-header">
+                <h2><i class="fas fa-bug"></i> Bug Hunt Challenge</h2>
+                <button class="bug-hunt-close" onclick="closeBugHunt()" aria-label="Close Bug Hunt">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="bug-hunt-stats">
+                <div class="bug-stat">
+                    <i class="fas fa-clock"></i>
+                    <span>Time: <span id="bug-timer">00:00</span></span>
+                </div>
+                <div class="bug-stat">
+                    <i class="fas fa-bug"></i>
+                    <span>Bugs Found: <span id="bugs-found">0</span>/3</span>
+                </div>
+                <div class="bug-stat">
+                    <i class="fas fa-star"></i>
+                    <span>Score: <span id="bug-score">0</span></span>
+                </div>
+            </div>
+
+            <div class="bug-hunt-instructions">
+                <p><strong>Challenge:</strong> Find 3 bugs in this calculator app! Click on buggy elements and describe what's wrong.</p>
+            </div>
+
+            <!-- Calculator App (with bugs) -->
+            <div class="calculator-container">
+                <div class="calculator">
+                    <div class="calculator-display" id="calc-display">0</div>
+                    <div class="calculator-buttons">
+                        <button class="calc-btn" onclick="calcClear()">C</button>
+                        <button class="calc-btn" onclick="calcOperation('/')">/</button>
+                        <button class="calc-btn" onclick="calcOperation('*')">×</button>
+                        <button class="calc-btn" onclick="calcBackspace()">⌫</button>
+                        <button class="calc-btn" onclick="calcNumber('7')">7</button>
+                        <button class="calc-btn" onclick="calcNumber('8')">8</button>
+                        <button class="calc-btn" onclick="calcNumber('9')">9</button>
+                        <button class="calc-btn" onclick="calcOperation('-')">-</button>
+                        <button class="calc-btn" onclick="calcNumber('4')">4</button>
+                        <button class="calc-btn" onclick="calcNumber('5')">5</button>
+                        <button class="calc-btn" onclick="calcNumber('6')">6</button>
+                        <button class="calc-btn" onclick="calcOperation('+')">+</button>
+                        <button class="calc-btn" onclick="calcNumberBuggy('1')">1</button>
+                        <button class="calc-btn" onclick="calcNumber('2')">2</button>
+                        <button class="calc-btn" onclick="calcNumber('3')">3</button>
+                        <button class="calc-btn calc-btn-equals" onclick="calcEquals()" rowspan="2">=</button>
+                        <button class="calc-btn calc-btn-zero" onclick="calcNumber('0')">0</button>
+                        <button class="calc-btn" onclick="calcNumber('.')">.</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bug Report Form (hidden initially) -->
+            <div id="bug-report-form" class="bug-report-form" style="display: none;">
+                <h3>Report a Bug</h3>
+                <p>You clicked on: <strong id="bugged-element-name"></strong></p>
+                <textarea id="bug-description" placeholder="Describe the bug you found..." rows="4"></textarea>
+                <div class="bug-report-actions">
+                    <button class="btn btn-primary" onclick="submitBugReport()">Submit Bug</button>
+                    <button class="btn btn-secondary" onclick="cancelBugReport()">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Completion Screen (hidden initially) -->
+            <div id="bug-hunt-complete" class="bug-hunt-complete" style="display: none;">
+                <div class="trophy-animation">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h2>Congratulations!</h2>
+                <p>You found all 3 bugs!</p>
+                <div class="completion-stats">
+                    <div class="completion-stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Time: <span id="final-time"></span></span>
+                    </div>
+                    <div class="completion-stat">
+                        <i class="fas fa-star"></i>
+                        <span>Final Score: <span id="final-score"></span></span>
+                    </div>
+                </div>
+                <div class="completion-actions">
+                    <button class="btn btn-primary" onclick="restartBugHunt()">Play Again</button>
+                    <button class="btn btn-secondary" onclick="closeBugHunt()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
